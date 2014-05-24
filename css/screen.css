@@ -1,0 +1,186 @@
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font: inherit;
+  font-size: 100%;
+  vertical-align: baseline;
+}
+
+html {
+  line-height: 1;
+}
+
+ol, ul {
+  list-style: none;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+caption, th, td {
+  text-align: left;
+  font-weight: normal;
+  vertical-align: middle;
+}
+
+q, blockquote {
+  quotes: none;
+}
+q:before, q:after, blockquote:before, blockquote:after {
+  content: "";
+  content: none;
+}
+
+a img {
+  border: none;
+}
+
+article, aside, details, figcaption, figure, footer, header, hgroup, main, menu, nav, section, summary {
+  display: block;
+}
+
+@font-face {
+  font-family: "SourceSansPro";
+  src: url('../fonts/sourcesanspro-regular-webfont.woff?1400549383') format("woff"), url('../fonts/sourcesanspro-regular-webfont.ttf?1400549383') format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: "SourceSansPro";
+  src: url('../fonts/sourcesanspro-italic-webfont.woff?1400549383') format("woff"), url('../fonts/sourcesanspro-italic-webfont.ttf?1400549383') format("truetype");
+  font-weight: normal;
+  font-style: italic;
+}
+@font-face {
+  font-family: "SourceSansPro";
+  src: url('../fonts/sourcesanspro-bold-webfont.woff?1400549383') format("woff"), url('../fonts/sourcesanspro-bold-webfont.ttf?1400549383') format("truetype");
+  font-weight: bold;
+  font-style: normal;
+}
+@font-face {
+  font-family: "SourceSansPro";
+  src: url('../fonts/sourcesanspro-bolditalic-webfont.woff?1400549383') format("woff"), url('../fonts/sourcesanspro-bolditalic-webfont.ttf?1400549383') format("truetype");
+  font-weight: bold;
+  font-style: italic;
+}
+html {
+  font-family: SourceSansPro, "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+html {
+  font-size: 131.25%;
+  line-height: 1.57143em;
+}
+
+[data-icon] {
+  font-family: "icons";
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  text-decoration: none;
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+[data-icon]:before {
+  content: attr(data-icon);
+}
+
+html {
+  background: white;
+  color: #4d4d4d;
+}
+
+body {
+  max-width: 30.28571rem;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 1.57143rem 1rem;
+}
+body:after {
+  content: " ";
+  display: block;
+  clear: both;
+}
+
+a:link, a:visited {
+  color: deepskyblue;
+}
+a:hover, a:focus, a:active {
+  color: #00afea;
+}
+
+button {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  width: auto;
+  background: none;
+  color: #4d4d4d;
+  font: inherit;
+  cursor: pointer;
+  overflow: visible;
+}
+button:hover, button:focus, button:active {
+  outline: 0;
+}
+
+button {
+  border-radius: 0.28571rem;
+  min-width: 212px;
+  padding: 0.80952rem 1.2381rem;
+}
+
+button {
+  background: deepskyblue;
+  color: white;
+}
+button:hover, button:focus, button:active {
+  background: #00a2d8;
+}
+button:active {
+  -moz-box-shadow: 0 1px 3px 1px rgba(77, 77, 77, 0.5) inset;
+  -webkit-box-shadow: 0 1px 3px 1px rgba(77, 77, 77, 0.5) inset;
+  box-shadow: 0 1px 3px 1px rgba(77, 77, 77, 0.5) inset;
+}
+button:disabled {
+  background: gray;
+  color: rgba(255, 255, 255, 0.5);
+  cursor: default;
+}
+
+label {
+  display: block;
+}
+
+input,
+textarea {
+  font-size: 1rem;
+  line-height: 1.57143rem;
+  border: 1px solid #797979;
+  margin-bottom: 1rem;
+  padding: 0.28571rem;
+  width: 100%;
+}
+
+textarea {
+  min-height: 7.61905rem;
+}

@@ -1,0 +1,196 @@
+// Import
+// ======
+
+@import "compass";
+@import "compass/reset";
+@import "susy";
+@import "accoutrement";
+
+
+// Colors
+// ------
+
+$base-colors: (
+  'white': #fff,
+  'black': hsl(0,0%,30%),
+  'blue': hsl(195,100%,50%),
+  'orange': hsl(24,100%,50%),
+  'green': hsl(75,100%,50%),
+  'pink': hsl(330,100%,50%),
+  'red': hsl(0,100%,50%),
+);
+
+$colors: (
+  text: 'black',
+  back: 'white',
+
+  border: 'black' (tint: 25%),
+  shadow: 'black' (alpha: .5),
+
+  action: 'blue',
+  focus: 'blue' (shade: 8%),
+
+  yield: 'orange',
+  stop: 'red',
+  go: 'green',
+);
+
+$contrasted-dark-default  : color('black');
+$contrasted-light-default : color('back');
+
+
+// Scale
+// -----
+
+$base-font-size: 21px;
+$ratio: major-third;
+
+$sizes: (
+  logo      : scale(8),
+  largest   : scale(6),
+  larger    : scale(4),
+  large     : scale(2),
+  medium    : scale(1),
+  normal    : scale(0),
+  small     : scale(-1),
+  smaller   : scale(-3),
+  smallest  : scale(-6),
+);
+
+
+// Layout
+// ------
+
+$susy: (
+  columns: 6,
+  gutters: size(medium)/size(largest),
+  column-width: size(largest),
+  gutter-position: inside-static,
+);
+
+
+// Type
+// ----
+
+$base-line-height: size(large);
+
+$rhythm-unit: rem;
+$rem-with-px-fallback: false;
+
+$relative-font-sizing: true;
+$round-to-nearest-half-line: true;
+
+$fonts: (
+  body: (
+    name: SourceSansPro,
+    type: sans-serif,
+    path: 'sourcesanspro-%s%s-webfont',
+    styles: (regular, italic, bold, bold italic),
+    stack: ('Helvetica Neue', Helvetica, Arial),
+  ),
+);
+
+$link: '&:link, &:visited';
+$focus: '&:hover, &:focus, &:active';
+
+
+// Root
+// ----
+
+@include fonts;
+@include establish-baseline;
+@include icon-placeholder;
+@include data-icons;
+
+html {
+  @extend %body;
+  background: color(back);
+  color: color(text);
+}
+
+body {
+  @include container;
+  padding: size(large) size(normal);
+}
+
+a {
+  #{$link} { color: color(action); }
+  #{$focus} { color: color(focus); }
+}
+
+
+// Buttons
+// -------
+
+%button-reset {
+  @include reset-box-model;
+  width: auto;
+  background: none;
+  color: color(text);
+  font: inherit;
+  cursor: pointer;
+  overflow: visible;
+
+  #{$focus} { outline: 0; }
+}
+
+%button {
+  border-radius: size(smallest);
+  min-width: span(2 static);
+  padding: size(small) size(medium);
+}
+
+@mixin button(
+  $bg: color(action),
+  $reset: true
+) {
+  @extend %button;
+
+  @if $reset {
+    @extend %button-reset;
+  }
+
+  $color: contrast-color($bg);
+
+  background: $bg;
+  color: $color;
+
+  #{$focus} {
+    background: shade($bg, 15%);
+  }
+
+  &:active {
+    @include box-shadow(0 1px 3px 1px color(shadow) inset);
+  }
+
+  &:disabled {
+    background: desaturate($bg, 100%);
+    color: rgba($color, .5);
+    cursor: default;
+  }
+}
+
+button {
+  @include button;
+}
+
+
+// Forms
+// -----
+
+label {
+  display: block;
+}
+
+input,
+textarea {
+  @include font-size(normal);
+  border: 1px solid color(border);
+  margin-bottom: size(normal);
+  padding: size(smallest);
+  width: 100%;
+}
+
+textarea {
+  min-height: size(largest)*2;
+}
