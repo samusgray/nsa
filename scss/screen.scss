@@ -5,6 +5,7 @@
 @import "compass/reset";
 @import "susy";
 @import "accoutrement";
+@import "breakpoint";
 
 
 // Colors
@@ -13,26 +14,26 @@
 $base-colors: (
   'white': #fff,
   'black': hsl(0,0%,30%),
-  'blue': hsl(195,100%,50%),
-  'orange': hsl(24,100%,50%),
+  'blue': #265D86,
   'green': hsl(75,100%,50%),
-  'pink': hsl(330,100%,50%),
   'red': hsl(0,100%,50%),
 );
 
 $colors: (
+  html: 'blue',
   text: 'black',
+  fade: 'text' (tint: 70%),
   back: 'white',
 
   border: 'black' (tint: 25%),
-  shadow: 'black' (alpha: .5),
+  shadow: 'black' (shade: 10%, alpha: .8),
 
-  action: 'blue',
-  focus: 'blue' (shade: 8%),
+  action: 'go',
+  focus: 'go' (shade: 8%),
 
   yield: 'orange',
   stop: 'red',
-  go: 'green',
+  go: 'blue' (adjust-hue: -130),
 );
 
 $contrasted-dark-default  : color('black');
@@ -58,17 +59,6 @@ $sizes: (
 );
 
 
-// Layout
-// ------
-
-$susy: (
-  columns: 6,
-  gutters: size(medium)/size(largest),
-  column-width: size(largest),
-  gutter-position: inside-static,
-);
-
-
 // Type
 // ----
 
@@ -80,18 +70,29 @@ $rem-with-px-fallback: false;
 $relative-font-sizing: true;
 $round-to-nearest-half-line: true;
 
-$fonts: (
-  body: (
-    name: SourceSansPro,
-    type: sans-serif,
-    path: 'sourcesanspro-%s%s-webfont',
-    styles: (regular, italic, bold, bold italic),
-    stack: ('Helvetica Neue', Helvetica, Arial),
-  ),
-);
-
 $link: '&:link, &:visited';
 $focus: '&:hover, &:focus, &:active';
+
+$fonts: (
+  body: (
+    name: BaskervilleFS,
+    type: serif,
+    path: 'baskerville-%s%s-webfont',
+    styles: (regular, italic, bold, bold italic),
+    stack: (Baskerville, Palatino, Cambria, Georgia),
+  )
+);
+
+
+// Layout
+// ------
+
+$susy: (
+  columns: 6,
+  gutters: size(medium)/size(largest),
+  column-width: size(largest),
+  gutter-position: inside-static,
+);
 
 
 // Root
@@ -101,21 +102,48 @@ $focus: '&:hover, &:focus, &:active';
 @include establish-baseline;
 @include icon-placeholder;
 @include data-icons;
+@include border-box-sizing;
 
 html {
   @extend %body;
-  background: color(back);
+  background: color(html) image-url('bg.jpg');
   color: color(text);
 }
 
 body {
-  @include container;
-  padding: size(large) size(normal);
+  @include background(image-url('nsa4us.png') no-repeat scroll center size(normal));
+  @include background-size(98% auto);
+  padding: size(normal);
+  text-align: center;
+
+  @include breakpoint(container()) {
+    @include background-size(size(largest) * 6 auto);
+  }
+}
+
+p {
+  margin-bottom: size(normal);
+
+  + p { font-style: italic; }
 }
 
 a {
   #{$link} { color: color(action); }
   #{$focus} { color: color(focus); }
+}
+
+strong { font-weight: bold; }
+
+em { font-style: italic; }
+
+hr {
+  border: 0;
+  border-top: 1px dashed color(border);
+  margin: size(larger);
+}
+
+.amp {
+  font-style: italic;
 }
 
 
@@ -179,18 +207,80 @@ button {
 // -----
 
 label {
+  @include font-size(small);
   display: block;
+  font-weight: bold;
+
+  @include after(':');
 }
 
 input,
 textarea {
   @include font-size(normal);
   border: 1px solid color(border);
+  font-family: inherit;
   margin-bottom: size(normal);
   padding: size(smallest);
   width: 100%;
+
+  @include input-placeholder {
+    color: color(fade);
+    font-style: italic;
+  }
 }
 
 textarea {
   min-height: size(largest)*2;
+  resize: vertical;
+}
+
+
+// Banner
+// ------
+
+[role='banner'] {
+  color: color(back);
+  font-weight: lighter;
+  padding-top: 32%;
+
+  @include breakpoint(container()) {
+    padding-top: size(normal) * 7.5;
+  }
+}
+
+.logo {
+  @extend %is-hidden;
+}
+
+.tagline {
+  font-style: italic;
+  letter-spacing: .03em;
+  padding: size(smaller) 0;
+  opacity: .9;
+  text-shadow: 0 1px 1px color(shadow),
+    0 1px size(smaller) color(shadow),
+    0 1px size(small) color(shadow);
+}
+
+
+// NSA Form
+// --------
+
+$container: container();
+$padding:  size(largest);
+
+.nsa-form {
+  @include container($container + $padding);
+  @include box-shadow(0 0 size(normal) color(shadow));
+  background: color(back) image-url('bottom.jpg') no-repeat scroll center bottom;
+  border-radius: size(smallest);
+  padding: $padding / 2;
+  padding-bottom: size(larger) * 2;
+  text-align: left;
+}
+
+[type="submit"] {
+  float: right;
+  margin-bottom: size(small);
+  text-transform: uppercase;
 }

@@ -9,20 +9,54 @@
 </head>
 <body>
 
-<form action="http://getsimpleform.com/messages?form_api_token=e495fa15c9121ba228bf3568a4a9352f" method="post">
+<header role="banner">
+  <h1 class="logo">NSA4.US</h1>
+  <h2 class="tagline">If you do something, say something!</h2>
+</header>
+
+<form class="nsa-form" role="main" action="http://getsimpleform.com/messages?form_api_token=e495fa15c9121ba228bf3568a4a9352f" method="post">
+
+  <p>
+    <strong>Dear Patriot:</strong>
+    The NSA is defending your nation <b class="amp">&</b> securing your future,
+    tapping your calls <b class="amp">&</b> collecting
+    massive amounts of data,
+    but what have you done to help?
+    You cling to personal secrets,
+    password-protected bank accounts,
+    sexual fantasies,
+    private conversations,
+    and questionable opinions —
+    forcing the NSA to waste time and energy tracking you down.
+  </p>
+
+  <p>
+    Together, we can make it stop!
+    Help cut out NSA innefficiency
+    and beurocratic government middlemen
+    by showing you have nothing to hide!
+    Tell the NSA everything you know,
+    everything you do,
+    and everything you think.
+    No more waste! No more fear!
+    No more secrets!
+    Information wants to be free!
+  </p>
+
+  <hr />
 
   <!-- the redirect_to is optional, the form will redirect to the referrer on submission -->
   <input type='hidden' name='redirect_to' value='http://ericsuzanne.com/nsa/thanks/' />
 
   <!-- all your input fields here.... -->
-  <label for="field-name">Name</label>
-  <input type='text' name='name' id="field-name" required />
+  <label for="field-name">Names <b class="amp">&</b> Aliases</label>
+  <input type='text' name='name' id="field-name" placeholder="Eric Suzanne, a.k.a. Princess 'John' DieHard" required />
 
   <label for="field-email">Email</label>
-  <input type='email' name='email' id="field-email" required />
+  <input type='email' name='email' id="field-email" placeholder="eric@nsa4.us" required />
 
   <label for="field-confession">All Your Secrets</label>
-  <textarea name="confession" id="field-confession" required></textarea>
+  <textarea name="confession" id="field-confession" placeholder="Passwords, sexual fantasies, private texts, pillow talk, etc." required></textarea>
 
   <button type="submit">Confess!</button>
 </form>

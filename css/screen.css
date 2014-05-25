@@ -54,32 +54,40 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, menu,
   display: block;
 }
 
+.logo {
+  position: absolute;
+  height: 1px;
+  width: 1px;
+  overflow: hidden;
+  clip: rect(1px, 1px, 1px, 1px);
+}
+
 @font-face {
-  font-family: "SourceSansPro";
-  src: url('../fonts/sourcesanspro-regular-webfont.woff?1400549383') format("woff"), url('../fonts/sourcesanspro-regular-webfont.ttf?1400549383') format("truetype");
+  font-family: "BaskervilleFS";
+  src: url('../fonts/baskerville-regular-webfont.woff?1400549383') format("woff"), url('../fonts/baskerville-regular-webfont.ttf?1400549383') format("truetype");
   font-weight: normal;
   font-style: normal;
 }
 @font-face {
-  font-family: "SourceSansPro";
-  src: url('../fonts/sourcesanspro-italic-webfont.woff?1400549383') format("woff"), url('../fonts/sourcesanspro-italic-webfont.ttf?1400549383') format("truetype");
+  font-family: "BaskervilleFS";
+  src: url('../fonts/baskerville-italic-webfont.woff?1400549383') format("woff"), url('../fonts/baskerville-italic-webfont.ttf?1400549383') format("truetype");
   font-weight: normal;
   font-style: italic;
 }
 @font-face {
-  font-family: "SourceSansPro";
-  src: url('../fonts/sourcesanspro-bold-webfont.woff?1400549383') format("woff"), url('../fonts/sourcesanspro-bold-webfont.ttf?1400549383') format("truetype");
+  font-family: "BaskervilleFS";
+  src: url('../fonts/baskerville-bold-webfont.woff?1400549383') format("woff"), url('../fonts/baskerville-bold-webfont.ttf?1400549383') format("truetype");
   font-weight: bold;
   font-style: normal;
 }
 @font-face {
-  font-family: "SourceSansPro";
-  src: url('../fonts/sourcesanspro-bolditalic-webfont.woff?1400549383') format("woff"), url('../fonts/sourcesanspro-bolditalic-webfont.ttf?1400549383') format("truetype");
+  font-family: "BaskervilleFS";
+  src: url('../fonts/baskerville-bolditalic-webfont.woff?1400549383') format("woff"), url('../fonts/baskerville-bolditalic-webfont.ttf?1400549383') format("truetype");
   font-weight: bold;
   font-style: italic;
 }
 html {
-  font-family: SourceSansPro, "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: BaskervilleFS, Baskerville, Palatino, Cambria, Georgia, serif;
 }
 
 html {
@@ -104,28 +112,65 @@ html {
   content: attr(data-icon);
 }
 
+*, *:before, *:after {
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
 html {
-  background: white;
+  background: #265d86 url('../images/bg.jpg?1400961077');
   color: #4d4d4d;
 }
 
 body {
-  max-width: 30.28571rem;
-  margin-left: auto;
-  margin-right: auto;
-  padding: 1.57143rem 1rem;
+  background: url('../images/nsa4us.png?1401037804') no-repeat scroll center 1rem;
+  -moz-background-size: 98% auto;
+  -o-background-size: 98% auto;
+  -webkit-background-size: 98% auto;
+  background-size: 98% auto;
+  padding: 1rem;
+  text-align: center;
 }
-body:after {
-  content: " ";
-  display: block;
-  clear: both;
+@media (min-width: 30.28571rem) {
+  body {
+    -moz-background-size: 22.85714rem auto;
+    -o-background-size: 22.85714rem auto;
+    -webkit-background-size: 22.85714rem auto;
+    background-size: 22.85714rem auto;
+  }
+}
+
+p {
+  margin-bottom: 1rem;
+}
+p + p {
+  font-style: italic;
 }
 
 a:link, a:visited {
-  color: deepskyblue;
+  color: #6d8626;
 }
 a:hover, a:focus, a:active {
-  color: #00afea;
+  color: #647b22;
+}
+
+strong {
+  font-weight: bold;
+}
+
+em {
+  font-style: italic;
+}
+
+hr {
+  border: 0;
+  border-top: 1px dashed #797979;
+  margin: 2.42857rem;
+}
+
+.amp {
+  font-style: italic;
 }
 
 button {
@@ -145,30 +190,36 @@ button:hover, button:focus, button:active {
 
 button {
   border-radius: 0.28571rem;
-  min-width: 212px;
+  min-width: 10.09524rem;
   padding: 0.80952rem 1.2381rem;
 }
 
 button {
-  background: deepskyblue;
+  background: #6d8626;
   color: white;
 }
 button:hover, button:focus, button:active {
-  background: #00a2d8;
+  background: #5c7120;
 }
 button:active {
-  -moz-box-shadow: 0 1px 3px 1px rgba(77, 77, 77, 0.5) inset;
-  -webkit-box-shadow: 0 1px 3px 1px rgba(77, 77, 77, 0.5) inset;
-  box-shadow: 0 1px 3px 1px rgba(77, 77, 77, 0.5) inset;
+  -moz-box-shadow: 0 1px 3px 1px rgba(69, 69, 69, 0.8) inset;
+  -webkit-box-shadow: 0 1px 3px 1px rgba(69, 69, 69, 0.8) inset;
+  box-shadow: 0 1px 3px 1px rgba(69, 69, 69, 0.8) inset;
 }
 button:disabled {
-  background: gray;
+  background: #565656;
   color: rgba(255, 255, 255, 0.5);
   cursor: default;
 }
 
 label {
+  font-size: 0.80952rem;
+  line-height: 1.57143rem;
   display: block;
+  font-weight: bold;
+}
+label:after {
+  content: ":";
 }
 
 input,
@@ -176,11 +227,77 @@ textarea {
   font-size: 1rem;
   line-height: 1.57143rem;
   border: 1px solid #797979;
+  font-family: inherit;
   margin-bottom: 1rem;
   padding: 0.28571rem;
   width: 100%;
 }
+input:-moz-placeholder,
+textarea:-moz-placeholder {
+  color: #c9c9c9;
+  font-style: italic;
+}
+input::-moz-placeholder,
+textarea::-moz-placeholder {
+  color: #c9c9c9;
+  font-style: italic;
+}
+input:-ms-input-placeholder,
+textarea:-ms-input-placeholder {
+  color: #c9c9c9;
+  font-style: italic;
+}
+input::-webkit-input-placeholder,
+textarea::-webkit-input-placeholder {
+  color: #c9c9c9;
+  font-style: italic;
+}
 
 textarea {
   min-height: 7.61905rem;
+  resize: vertical;
+}
+
+[role='banner'] {
+  color: white;
+  font-weight: lighter;
+  padding-top: 32%;
+}
+@media (min-width: 30.28571rem) {
+  [role='banner'] {
+    padding-top: 7.5rem;
+  }
+}
+
+.tagline {
+  font-style: italic;
+  letter-spacing: .03em;
+  padding: 0.52381rem 0;
+  opacity: .9;
+  text-shadow: 0 1px 1px rgba(69, 69, 69, 0.8), 0 1px 0.52381rem rgba(69, 69, 69, 0.8), 0 1px 0.80952rem rgba(69, 69, 69, 0.8);
+}
+
+.nsa-form {
+  max-width: 34.09524rem;
+  margin-left: auto;
+  margin-right: auto;
+  -moz-box-shadow: 0 0 1rem rgba(69, 69, 69, 0.8);
+  -webkit-box-shadow: 0 0 1rem rgba(69, 69, 69, 0.8);
+  box-shadow: 0 0 1rem rgba(69, 69, 69, 0.8);
+  background: white url('../images/bottom.jpg?1401057061') no-repeat scroll center bottom;
+  border-radius: 0.28571rem;
+  padding: 1.90476rem;
+  padding-bottom: 4.85714rem;
+  text-align: left;
+}
+.nsa-form:after {
+  content: " ";
+  display: block;
+  clear: both;
+}
+
+[type="submit"] {
+  float: right;
+  margin-bottom: 0.80952rem;
+  text-transform: uppercase;
 }
