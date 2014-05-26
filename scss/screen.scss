@@ -234,6 +234,12 @@ textarea {
   resize: vertical;
 }
 
+[type="submit"] {
+  float: right;
+  margin-bottom: size(small);
+  text-transform: uppercase;
+}
+
 
 // Banner
 // ------
@@ -263,13 +269,13 @@ textarea {
 }
 
 
-// NSA Form
-// --------
+// Main
+// ----
 
 $container: container();
 $padding:  size(largest);
 
-.nsa-form {
+[role="main"] {
   @include container($container + $padding);
   @include box-shadow(0 0 size(normal) color(shadow));
   background: color(back) image-url('bottom.jpg') no-repeat scroll center bottom;
@@ -279,8 +285,17 @@ $padding:  size(largest);
   text-align: left;
 }
 
-[type="submit"] {
-  float: right;
-  margin-bottom: size(small);
-  text-transform: uppercase;
+
+// Thanks
+// ------
+
+.thanks-title {
+  @include font-size(largest);
+  font-style: italic;
+  margin-bottom: size(normal);
+  text-align: center;
+}
+
+.thanks-note {
+  text-align: center;
 }

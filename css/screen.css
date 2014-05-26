@@ -258,6 +258,12 @@ textarea {
   resize: vertical;
 }
 
+[type="submit"] {
+  float: right;
+  margin-bottom: 0.80952rem;
+  text-transform: uppercase;
+}
+
 [role='banner'] {
   color: white;
   font-weight: lighter;
@@ -277,7 +283,7 @@ textarea {
   text-shadow: 0 1px 1px rgba(69, 69, 69, 0.8), 0 1px 0.52381rem rgba(69, 69, 69, 0.8), 0 1px 0.80952rem rgba(69, 69, 69, 0.8);
 }
 
-.nsa-form {
+[role="main"] {
   max-width: 34.09524rem;
   margin-left: auto;
   margin-right: auto;
@@ -290,14 +296,20 @@ textarea {
   padding-bottom: 4.85714rem;
   text-align: left;
 }
-.nsa-form:after {
+[role="main"]:after {
   content: " ";
   display: block;
   clear: both;
 }
 
-[type="submit"] {
-  float: right;
-  margin-bottom: 0.80952rem;
-  text-transform: uppercase;
+.thanks-title {
+  font-size: 3.80952rem;
+  line-height: 4.71429rem;
+  font-style: italic;
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+.thanks-note {
+  text-align: center;
 }
