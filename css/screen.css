@@ -149,10 +149,10 @@ p + p {
 }
 
 a:link, a:visited {
-  color: #6d8626;
+  color: red;
 }
 a:hover, a:focus, a:active {
-  color: #647b22;
+  color: #ea0000;
 }
 
 strong {
@@ -173,6 +173,54 @@ hr {
   font-style: italic;
 }
 
+@-moz-keyframes fuck-yeah {
+  0% {
+    background: red;
+    color: white;
+  }
+
+  33% {
+    background: white;
+    color: #4d4d4d;
+  }
+
+  66% {
+    background: #265d86;
+    color: white;
+  }
+}
+@-webkit-keyframes fuck-yeah {
+  0% {
+    background: red;
+    color: white;
+  }
+
+  33% {
+    background: white;
+    color: #4d4d4d;
+  }
+
+  66% {
+    background: #265d86;
+    color: white;
+  }
+}
+@keyframes fuck-yeah {
+  0% {
+    background: red;
+    color: white;
+  }
+
+  33% {
+    background: white;
+    color: #4d4d4d;
+  }
+
+  66% {
+    background: #265d86;
+    color: white;
+  }
+}
 button {
   margin: 0;
   padding: 0;
@@ -190,16 +238,17 @@ button:hover, button:focus, button:active {
 
 button {
   border-radius: 0.28571rem;
+  font-weight: bold;
   min-width: 10.09524rem;
   padding: 0.80952rem 1.2381rem;
 }
 
 button {
-  background: #6d8626;
+  background: red;
   color: white;
 }
 button:hover, button:focus, button:active {
-  background: #5c7120;
+  background: #d80000;
 }
 button:active {
   -moz-box-shadow: 0 1px 3px 1px rgba(69, 69, 69, 0.8) inset;
@@ -207,7 +256,7 @@ button:active {
   box-shadow: 0 1px 3px 1px rgba(69, 69, 69, 0.8) inset;
 }
 button:disabled {
-  background: #565656;
+  background: gray;
   color: rgba(255, 255, 255, 0.5);
   cursor: default;
 }
@@ -259,9 +308,20 @@ textarea {
 }
 
 [type="submit"] {
+  -moz-transition: all 150ms;
+  -o-transition: all 150ms;
+  -webkit-transition: all 150ms;
+  transition: all 150ms;
   float: right;
   margin-bottom: 0.80952rem;
+  min-width: 100%;
   text-transform: uppercase;
+}
+[type="submit"]:hover, [type="submit"]:focus, [type="submit"]:active {
+  -moz-animation: fuck-yeah 600ms steps(1) infinite;
+  -webkit-animation: fuck-yeah 600ms steps(1) infinite;
+  animation: fuck-yeah 600ms steps(1) infinite;
+  box-shadow: rgba(69, 69, 69, 0.8) 0 0 0.28571rem;
 }
 
 [role='banner'] {
@@ -276,11 +336,16 @@ textarea {
 }
 
 .tagline {
+  background: -moz-radial-gradient(ellipse farthest-side at bottom, #183c57, rgba(24, 60, 87, 0));
+  background: -webkit-radial-gradient(ellipse farthest-side at bottom, #183c57, rgba(24, 60, 87, 0));
+  background: radial-gradient(ellipse farthest-side at bottom, #183c57, rgba(24, 60, 87, 0));
+  border-radius: 0.28571rem;
+  display: inline-block;
   font-style: italic;
   letter-spacing: .03em;
-  padding: 0.52381rem 0;
-  opacity: .9;
-  text-shadow: 0 1px 1px rgba(69, 69, 69, 0.8), 0 1px 0.52381rem rgba(69, 69, 69, 0.8), 0 1px 0.80952rem rgba(69, 69, 69, 0.8);
+  min-width: 30.28571rem;
+  padding: 1.2381rem 1.57143rem 0.28571rem;
+  text-shadow: 0 1px 0 rgba(69, 69, 69, 0.8);
 }
 
 [role="main"] {

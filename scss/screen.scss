@@ -25,15 +25,17 @@ $colors: (
   fade: 'text' (tint: 70%),
   back: 'white',
 
+  tagline: 'blue' (shade: 35%),
+
   border: 'black' (tint: 25%),
   shadow: 'black' (shade: 10%, alpha: .8),
 
-  action: 'go',
-  focus: 'go' (shade: 8%),
+  action: 'red',
+  focus: 'action' (shade: 8%),
 
   yield: 'orange',
   stop: 'red',
-  go: 'blue' (adjust-hue: -130),
+  go: 'blue',
 );
 
 $contrasted-dark-default  : color('black');
@@ -150,6 +152,21 @@ hr {
 // Buttons
 // -------
 
+@include keyframes(fuck-yeah) {
+  0% {
+    background: color('red');
+    color: contrast-color(color('red'));
+  }
+  33% {
+    background: color('white');
+    color: contrast-color(color('white'));
+  }
+  66% {
+    background: color('blue');
+    color: contrast-color(color('blue'));
+  }
+}
+
 %button-reset {
   @include reset-box-model;
   width: auto;
@@ -164,6 +181,7 @@ hr {
 
 %button {
   border-radius: size(smallest);
+  font-weight: bold;
   min-width: span(2 static);
   padding: size(small) size(medium);
 }
@@ -235,9 +253,16 @@ textarea {
 }
 
 [type="submit"] {
+  @include transition(all 150ms);
   float: right;
   margin-bottom: size(small);
+  min-width: 100%;
   text-transform: uppercase;
+
+  #{$focus} {
+    @include animation(fuck-yeah 600ms steps(1) infinite);
+    box-shadow: color(shadow) 0 0 size(smallest);
+  }
 }
 
 
@@ -259,13 +284,18 @@ textarea {
 }
 
 .tagline {
+  @include background(radial-gradient(
+    ellipse farthest-side at bottom,
+    color(tagline),
+    rgba(color(tagline), 0)
+  ));
+  border-radius: size(smallest);
+  display: inline-block;
   font-style: italic;
   letter-spacing: .03em;
-  padding: size(smaller) 0;
-  opacity: .9;
-  text-shadow: 0 1px 1px color(shadow),
-    0 1px size(smaller) color(shadow),
-    0 1px size(small) color(shadow);
+  min-width: container();
+  padding: size(medium) size(large) size(smallest);
+  text-shadow: 0 1px 0 color(shadow);
 }
 
 
