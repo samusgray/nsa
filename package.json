@@ -1,0 +1,32 @@
+{
+  "name": ,"nsa",
+  "version": "0.0.0",
+  "description": "Ask not what the NSA can do for you.",
+  "main": "app.js",
+  "dependencies": {
+    "express": "^4.4.5",
+    "mongoose": "^3.8.12"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ericam/nsa.git"
+  },
+  "engines": {
+    "node": "0.10.x"
+  },
+  "keywords": [
+    "privacy",
+    "air-quotes",
+    "USA",
+    "NSA",
+    "secret"
+  ],
+  "author": "ericam"
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ericam/nsa/issues"
+  }
+}
